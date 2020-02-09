@@ -10,7 +10,7 @@ public class Usuario implements Serializable {
     private String nome;
     private LocalDate nascimento;
     private String senha;
-    private static final long serialVersionUID = -3794774872648017318L;
+    private static final long serialVersionUID = 4357314100676060359L;
 
     public Usuario(String email, String nome, LocalDate nascimento, String senha) {
         this.email = email;
