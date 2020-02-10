@@ -5,6 +5,8 @@ import com.ifpb.interfacegrafica.dao.UsuarioDaoSet;
 import com.ifpb.interfacegrafica.modelo.Usuario;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class TelaLogin extends JFrame {
@@ -53,10 +55,12 @@ public class TelaLogin extends JFrame {
                 JOptionPane.showMessageDialog(this,
                         "Usuário não encontrado");
             }else{
-                if(usuario.autenticar(campoEmail.getText(),
-                        new String(campoSenha.getPassword()))){
-                    JOptionPane.showMessageDialog(this,
-                            "Logado");
+                if(usuario.autenticar(campoEmail.getText(), new String(campoSenha.getPassword()))){
+
+                    TelaCrud telaCrud = new TelaCrud();
+                    telaCrud.setVisible(true);
+                    this.dispose();
+
                 }else{
                     JOptionPane.showMessageDialog(this,
                             "Senha incorreta");
@@ -64,6 +68,7 @@ public class TelaLogin extends JFrame {
             }
 
         });
+
     }
 
     private void createUIComponents() {

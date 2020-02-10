@@ -27,6 +27,8 @@ public class UsuarioDaoArquivo {
         arquivo = new File("usuarios");
 
         if(!arquivo.exists()) arquivo.createNewFile();
+
+
     }
 
     public Set<Usuario> getUsuarios() throws IOException,
@@ -39,10 +41,9 @@ public class UsuarioDaoArquivo {
         }else return new HashSet<>();
     }
 
-    public Usuario buscarPorEmail(String email) throws IOException,
-            ClassNotFoundException {
+    public Usuario buscarPorEmail(String email) throws IOException, ClassNotFoundException {
         return getUsuarios().stream().filter(
-                u -> u.getEmail().equals(email)
+            u -> u.getEmail().equals(email)
         ).findFirst().orElse(null);
     }
 
@@ -61,12 +62,12 @@ public class UsuarioDaoArquivo {
     }
 
     //TODO Criar método de atualizar e remover
-//fiz os metodos e um adcinou para buscar o usuário pelo email
+//Metodo para buscar
     private Optional<Usuario> filtrarUsuario(Set<Usuario> usuarios, String email){
         return usuarios.stream().filter(e -> e.getEmail().equals(email)).findFirst();
     }
 
-
+    //metodo para atualizar
     public boolean atualizar(Usuario usuario) throws IOException, ClassNotFoundException {
         Set<Usuario> usuarios = getUsuarios();
         Optional<Usuario> optionalUsuario = filtrarUsuario(usuarios, usuario.getEmail());
@@ -82,6 +83,7 @@ public class UsuarioDaoArquivo {
 
     }
 
+    //metodo para remover usuário
     public boolean removerUsuario (Usuario usuario) throws IOException, ClassNotFoundException{
         Set<Usuario> usuarios = getUsuarios();
         if(usuarios.remove(usuario)){
@@ -91,3 +93,5 @@ public class UsuarioDaoArquivo {
         return false;
     }
 }
+
+
