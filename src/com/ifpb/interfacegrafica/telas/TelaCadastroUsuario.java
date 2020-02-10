@@ -47,9 +47,6 @@ public class TelaCadastroUsuario extends JFrame {
             String email = campoEmail.getText();
             String nome = campoNome.getText();
             String dataNascimento = campoNascimento.getText().replace("/", "");
-            //System.out.println(campoNascimento.getText().replace("/", "").length());
-            //até tratei o campo nascimento para tirar o / /
-            //System.out.println(campoNascimento.getText().replace("/", ""));
 
             //TODO validar os campos
             //Primeiro pelo EMail
@@ -177,7 +174,7 @@ public class TelaCadastroUsuario extends JFrame {
                         }
                         else{
                             JOptionPane.showMessageDialog(this,
-                                    "Data invalida S2!");
+                                    "Data invalida!");
                         }
                     }
                     else {
@@ -194,111 +191,7 @@ public class TelaCadastroUsuario extends JFrame {
                 JOptionPane.showMessageDialog(this,
                         "Campo Email não preenchido!");
             }
-                /*
 
-                */
-
-                /*
-            else{
-                //Segundo pelo nome
-                if(nome.isEmpty()){
-                        JOptionPane.showMessageDialog(this,
-                                "Campo nome não preenchido!");
-                    if(campoNascimento.getText() == null){
-                        JOptionPane.showMessageDialog(this,
-                                "Campo nascimento não preenchido!");
-                    }
-
-                    if(campoSenha1.getPassword().length == 0){
-                        JOptionPane.showMessageDialog(this,
-                                "Campo senha não preenchido!");
-                    }
-
-                    if(campoSenha2.getPassword().length == 0){
-                        JOptionPane.showMessageDialog(this,
-                                "Campo repetição de senha não preenchido!");
-                    }
-                }
-                else{
-                    //Terceiro pelo nascimento
-                    //em todos os nascimento
-                    if (campoNascimento.getText() == null){
-                        JOptionPane.showMessageDialog(this,
-                                "Campo nascimento não preenchido!");
-
-                    if(campoSenha1.getPassword().length == 0){
-                        JOptionPane.showMessageDialog(this,
-                                "Campo senha não preenchido!");
-                    }
-
-                    if(campoSenha2.getPassword().length == 0){
-                        JOptionPane.showMessageDialog(this,
-                                "Campo repetição de senha não preenchido!");
-                    }
-                    }
-                    else{
-                        //quarto pela primeira senha
-                        if(campoSenha1.getPassword().length == 0){
-                            JOptionPane.showMessageDialog(this,
-                                    "Campo senha não preenchido!");
-
-
-                        if(campoSenha2.getPassword().length == 0){
-                            JOptionPane.showMessageDialog(this,
-                                    "Campo repetição de senha não preenchido!");
-                        }
-
-                        }
-                        else{
-                            //repetição de senha
-
-                            if(campoSenha2.getPassword().length == 0){
-                                JOptionPane.showMessageDialog(this,
-                                        "Campo repetição de senha não preenchido!");
-                            }
-                            else{
-                                //senhas iguais
-                              if(!Arrays.equals(campoSenha1.getPassword(),
-                                campoSenha2.getPassword())){
-                                JOptionPane.showMessageDialog(this,
-                                 "As senhas devem ser iguais");
-                                }
-
-
-                              else {
-                                email = campoEmail.getText();
-                                nome = campoNome.getText();
-                                //TODO Tratar as exceções
-                                LocalDate nascimento = LocalDate
-                                    .parse(campoNascimento.getText(), formatter);
-                                String senha = new String(campoSenha1.getPassword());
-
-                                Usuario usuario = new Usuario(email, nome, nascimento, senha);
-
-                            try {
-                                if (usuarioDao.salvar(usuario)) {
-                                    JOptionPane.showMessageDialog(this,
-                                    "Salvo com sucesso");
-                        } else {
-                            JOptionPane.showMessageDialog(this,
-                                    "Usuário já cadastrado",
-                                    "Mensagem de erro",
-                                    JOptionPane.ERROR_MESSAGE);
-                        }
-                    } catch (IOException | ClassNotFoundException ex) {
-                        JOptionPane.showMessageDialog(this,
-                                "Falha na conexão com o arquivo",
-                                "Mensagem de erro",
-                                JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-                            }
-                        }
-                    }
-                }
-            }
-
-                 */
         });
 
 

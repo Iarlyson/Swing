@@ -90,7 +90,4 @@ public class UsuarioDaoArquivo {
         }
         return false;
     }
-
-
-
 }
